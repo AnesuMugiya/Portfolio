@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${ styles.paddingX } w-full flex items-center py-5 fixed top-0 z-20 bg-primary`} 
+      className={`${ styles.paddingX } w-full flex items-center py-5 fixed top-0 z-20 bg-transparent`} 
       >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
 
@@ -27,31 +27,18 @@ const Navbar = () => {
           >
 
             {/* My logo */}
-            <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-            <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Nesy's &nbsp;
-            <span className='sm:block hidden'> | Creative Lab</span>
-          </p>
+          <div class='flex items-center gap-4'>
+            <img class='w-10 h-10 ' src={logo} alt='logo' />
+            <div class="font-medium dark:text-white">
+                <div>Anesu Mugiya</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Lv. ∞</div>
+            </div>
+          </div>
+
         </Link>
 
         {/* Other navigation links */}
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-
-            </li>
-          ))}
-        </ul>
-
-        {/* Collapse on mobile phones */}
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu} // menu off and on 
             alt='menu'
@@ -59,7 +46,7 @@ const Navbar = () => {
             onClick={() => setToggle(!toggle)} // chage state on toggle
           />
 
-          {/* mobile menu */}
+          {/* Collapsible menu */}
           <div
             className={`${
               !toggle ? "hidden" : "flex"
