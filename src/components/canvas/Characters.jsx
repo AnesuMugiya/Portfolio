@@ -24,7 +24,7 @@ const Characters = () => {
       <primitive
         object={character.scene}
         scale={0.13} // Size of the model
-        position={[0, -20, 0]} // X, Y, Z positioning of the character
+        position={[0, -19, 0]} // X, Y, Z positioning of the character
         rotation={[0, 0, 0]}
       />
     </mesh>
@@ -37,7 +37,7 @@ const CharactersCanvas = () => {
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [50, 3, 5], fov: 25 }}
+      camera={{ position: [42, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />} > {/* Had to remove this property fallback={<CanvasLoader />} */}
